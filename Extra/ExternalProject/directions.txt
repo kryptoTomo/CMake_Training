@@ -1,0 +1,17 @@
+Extra exercise: External Projects
+
+The goal is to drive the compilation of a project and it dependencies from CMake.
+For that, we can use the command ExternalProject_Add from the CMake helper ExternalProject.
+
+For that exercise, the project will be Step11-consumer and the dependency will be Step11.
+
+First, we include the helper ExternalProject.
+Then, we tell CMake to build our project dependency (Step11), with a first call to ExternalProject_Add.
+We'll use the arguments SOURCE_DIR, BINARY_DIR and CMAKE_ARGS (to give an install prefix to CMake)
+
+Finally, we'll use a second call to ExternalProject_Add to build our project (Step11-consumer).
+Again, we will use SOURCE_DIR, BINARY_DIR and CMAKE_ARGS (this time, to give a prefix path to let CMake find the dependency)
+Let's also use the argument INSTALL_COMMAND with an empty string to tell CMake not to install Step11-consumer
+
+Finally, let's use cmake to configure and generate the build file and start the compilation.
+Do not forget to give a install prefix to CMake with the flag -D
